@@ -69,7 +69,7 @@
                                 <s:actionmessage cssStyle="text-align:center;font-size: 8pt" />
                             </td>
                         </tr>
-                        <tr><td class="subtituloR">ACCESO</td></tr>
+                        <tr><td class="subtituloR">ACCESO prueba</td></tr>
                         <tr><td>&nbsp;</td></tr>
                         <tr>
                             <td align="left">
