@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+    <constant name="struts.multipart.maxSize" value="299999999" />
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+    <constant name="struts.action.excludePattern" value="/GeneraPdf"></constant>
+    
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!-- ACCESO  A MENUS-->	
+        <action name="acceso" class="action.Acceso_Action" method="verMevu">
+            <result name="SUCCESS">/pages/logTablero.jsp</result>			              
+            <result name="ERROR">/pages/logTablero.jsp</result>
+            <result name="input">/pages/logTablero.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        
+       <action name="verAcceso" class="action.Acceso_Action" method="MuestraMenuPrincipalUsuario">
+            <result name="SUCCESS" type="chain">inicio</result>			              
+            <result name="ERROR">/pages/logTablero.jsp</result>
+            <result name="input">/pages/logTablero.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        <!--REGISTRO  -->				
+        <!-- CERRAR SESION -->
+        <action name="CerrarSesion" class="action.CerrarSesion" method="cerrar">  
+            <result name="SUCCESS" type="chain">acceso</result>
+            <result name="input" type="chain">acceso</result>
+        </action>
+        	
+        <action name="inicio" class="action.PantallaPrincipal_Action" method="botones">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="nivelcomunidad" class="action.PantallaPrincipal_Action" method="comunidadNivel">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="menuProgyApoyo" class="action.PantallaPrincipal_Action" method="menuProgyApoyo">
+            <result name="SUCCESS">/pages/progyapoyo.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="programaSelect" class="action.PantallaPrincipal_Action" method="menuProgyApoyoSelect">
+            <result name="SUCCESS">/pages/progyapoyo.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="Regio" class="action.PantallaPrincipal_Action" method="regio">
+            <result name="SUCCESS">/pages/regio.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="RegioSelect" class="action.PantallaPrincipal_Action" method="regioSelect">
+            <result name="SUCCESS">/pages/regio.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="municipioSelect" class="action.PantallaPrincipal_Action" method="municipioSelect">
+            <result name="SUCCESS">/pages/regio.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="regioTipoProgBan" class="action.PantallaPrincipal_Action" method="regioTipoProgBan">
+            <result name="SUCCESS">/pages/regio.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="municipioMapa" class="action.PantallaPrincipal_Action" method="municipioMapa">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="busquedaCCT" class="action.PantallaPrincipal_Action" method="busquedaCCT">
+            <result name="SUCCESS">/pages/busquedaCCT.jsp</result>			              
+            <result name="ERROR">/pages/busquedaCCT.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+          <action name="busquedaCCTInicio" class="action.PantallaPrincipal_Action" method="busquedaCCT">
+            <result name="SUCCESS">/pages/busquedaCCT.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        
+        <action name="monitorIms" class="action.PantallaPrincipal_Action" method="monitorIms">
+            <result name="SUCCESS">/pages/monitorims.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="serlinea" class="action.PantallaPrincipal_Action" method="serlinea">
+            <result name="SUCCESS">/pages/serlinea.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="serlineaMenuTodos" class="action.PantallaPrincipal_Action" method="serlineaMenuTodos">
+            <result name="SUCCESS">/pages/serlinea.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="serlineaConsulta" class="action.PantallaPrincipal_Action" method="serlineaConsulta">
+            <result name="SUCCESS">/pages/serlinea.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="serlineaMesConsulta" class="action.PantallaPrincipal_Action" method="serlineaMesConsulta">
+            <result name="SUCCESS">/pages/serlinea.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+		
+         <action name="infografia" class="action.PantallaPrincipal_Action" method="infografia">
+            <result name="SUCCESS">/pages/serlinea.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>       
+                
+                
+                
+    </package>
+	
+</struts>
