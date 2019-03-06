@@ -172,6 +172,91 @@ public class Acceso_Action extends ActionSupport implements SessionAware {
             return "ERROR";
         }
     }
+    
+    public String MuestraMenuPrincipalUsuario2() {
+        cveusuario="UDAI";
+        pasusuario="UDAI";
+        String action = "AccesoAlmacen.action";
+        String ligaActual = "AccesoAlmacen.action";
+        generaNavegacion(action, ligaActual);
+        
+        pasusuario = cveusuario;
+        
+        pasusuario="UDAI";
+        
+    
+
+        if (cveusuario != null) {
+            session.put("cveUsuario", cveusuario);
+            session.put("psw", pasusuario);
+        } else if (session.get("cveUsuario") != null) {
+            cveusuario = (String) session.get("cveUsuario");
+            pasusuario = (String) session.get("psw");
+        }
+
+        try {
+
+            //Se crea un nuevo objeto de acceco a Business
+            AccesoBusiness acceso = new AccesoBusiness();
+
+            usuariocons = acceso.consultaUsuario(cveusuario, pasusuario);
+
+            if (usuariocons != null) {
+                System.out.println("si entro despues de la cosulta");
+                session.put("usuario", usuariocons);
+
+                //obteniendo el nombre del usuario
+                
+                
+                nombreUsuario = usuariocons.getNAMEUSUARIO();
+                
+                
+                /*modulosAUX = (ArrayList<moduloBean>) acceso.consultaModulosPerfilMenu(usuariocons.getPERFIL(), modulo);
+                modulosAUXP = (ArrayList<moduloAuxBean>) acceso.consultaModulosHijosPerfilMenu(usuariocons.getPERFIL(), modulo);
+
+
+                Constantes.enviaMensajeConsola("REGRESE-----------------------");
+                Iterator iterG = modulosAUX.iterator();
+                while(iterG.hasNext()){
+                	moduloBean Concep = (moduloBean) iterG.next();
+                	System.out.println("VALOR -->" + Concep.getCVE_MODPADRE());
+                    System.out.println("VALOR -->" + Concep.getDESC_MOD());
+                    System.out.println("VALOR -->" + Concep.getIMAGEN());
+
+                }
+
+                if(modulosAUX == null){
+                    addActionError("***** Ud. no tiene acceso a este modulo, favor de contacar al administrador del sistema ***** ");
+                    return "ERROR";
+                }*/
+                
+                String fechaHoy;
+                
+                fechaHoy=fecha();
+                
+                System.out.println("La fecha de hoy es: "+fechaHoy);
+                 System.out.println("Usuario: "+usuariocons.getNAMEUSUARIO());
+                 System.out.println("Usuario: "+usuariocons.getUSUARIO());
+                 usr.setNAMEUSUARIO(usuariocons.getNAMEUSUARIO());
+                 usr.setUSUARIO(usuariocons.getUSUARIO());
+                 usr.setFECHA(fechaHoy);
+                
+                acceso.logEntrada(usr);
+                
+                
+                Constantes.enviaMensajeConsola("voy a successs-----------------------");
+                return "SUCCESS";
+            } else {
+                addActionError("***** Usuario no valido, favor de verificar ***** ");
+                return "ERROR";
+            }
+
+        } catch (Exception e) {
+            TipoError = "SESSION";
+            TipoException = e.getMessage();
+            return "ERROR";
+        }
+    }
      public String fecha(){
     String fechaHoy;
      

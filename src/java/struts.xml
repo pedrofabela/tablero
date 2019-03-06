@@ -28,6 +28,14 @@
             <result name="input">/pages/logTablero.jsp</result>
             <result name="SESION" type="chain">CerrarSesion</result>
         </action>
+        
+        <action name="tablero" class="action.Acceso_Action" method="MuestraMenuPrincipalUsuario2">
+            <result name="SUCCESS" type="chain">inicio2</result>			              
+            <result name="ERROR">/pages/logTablero.jsp</result>
+            <result name="input">/pages/logTablero.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
         <!--REGISTRO  -->				
         <!-- CERRAR SESION -->
         <action name="CerrarSesion" class="action.CerrarSesion" method="cerrar">  
@@ -42,12 +50,32 @@
             <result name="SESION" type="chain">CerrarSesion</result>
         </action>
         
+          <action name="inicio2" class="action.PantallaPrincipal_Action" method="botones">
+            <result name="SUCCESS">/pages/index2.jsp</result>			              
+            <result name="ERROR">/pages/index2.jsp</result>
+            <result name="input">/pages/index2.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        
+        
          <action name="nivelcomunidad" class="action.PantallaPrincipal_Action" method="comunidadNivel">
             <result name="SUCCESS">/pages/index.jsp</result>			              
             <result name="ERROR">/pages/index.jsp</result>
             <result name="input">/pages/index.jsp</result>
             <result name="SESION" type="chain">CerrarSesion</result>
         </action>
+        
+         <action name="nivelcomunidad2" class="action.PantallaPrincipal_Action" method="comunidadNivel">
+            <result name="SUCCESS">/pages/index2.jsp</result>			              
+            <result name="ERROR">/pages/inde2x.jsp</result>
+            <result name="input">/pages/index2.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        
+        
+        
         
          <action name="menuProgyApoyo" class="action.PantallaPrincipal_Action" method="menuProgyApoyo">
             <result name="SUCCESS">/pages/progyapoyo.jsp</result>			              
