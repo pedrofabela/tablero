@@ -517,7 +517,10 @@ function checkTime(i) {
                                     <div style="widows: 90%; height: 30px; margin: auto; margin-top: 10px; text-align: center; font-size: 14px; ">Total de Escuelas: <s:property value="regioB.TOTAL_ESCUELAS_NIV"/></div>
 
 
-                            <div  class="mapa" id="mapa" >
+                            <div  class="mapa"  >
+                                
+                                <img src="img/mapa2.png" style="width: 100%; border-radius: 20px;"></img>
+                                
                             </div>
                            
                            
